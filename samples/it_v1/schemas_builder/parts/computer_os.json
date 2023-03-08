@@ -1,0 +1,26 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"properties": {
+		"os": {
+			"type": "string",
+			"anyOf": [
+				{ "type": "string" },
+				{"enum": [
+					"''",
+					"'Windows XP Home'",
+					"'Windows XP Pro'",
+					"'Windows Vista Home'",
+					"'Windows Vista Pro'",
+					"'Windows 7 Home'",
+					"'Windows 7 Pro'",
+					"'Windows 8 Home'",
+					"'Windows 8 Pro'",
+					"'Windows 10 Home'",
+					"'Windows 10 Pro'",
+					"'Windows 11 Home'",
+					"'Windows 11 Pro'"
+				]}
+			]
+		}
+	}
+}

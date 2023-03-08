@@ -1,0 +1,56 @@
+div#HEADFILES
+-
+	const maintenances = []
+	let fulltime = 0
+	const readNode = (curNode) => {
+		if(curNode?.data?.maintenances?.length > 0) {
+			const nodeItem = {
+				name: curNode.data.name,
+				maintenances: curNode.data.maintenances,
+			}
+			maintenances.push(nodeItem)
+		}
+		curNode.items.forEach((itm) => {
+			if(itm?.data?.maintenances?.length > 0) {
+				const nodeItem = {
+					name: itm.data.name,
+					maintenances: itm.data.maintenances,
+				}
+				nodeItem?.maintenances?.forEach((maintenance) => {
+				 	if(maintenance.yearlytime) fulltime += maintenance.yearlytime
+				})
+				maintenances.push(nodeItem)
+			}
+		})
+		curNode.nodes.forEach((childNode) => {
+			readNode(childNode)
+		})
+	}
+	readNode(doc)
+table
+	each itm in maintenances
+		tr
+			td=itm.name
+			td
+				table
+					thead 
+						th Type
+						th Frequency
+						th Yearly time
+						th Todo
+					each maintenance in itm.maintenances
+						tr
+							td=maintenance.type
+							td=maintenance.frequency
+							if typeof maintenance.yearlytime === 'number'
+								td=maintenance.yearlytime + ' min'
+							else
+								td
+							td=maintenance.action
+table 
+	tr 
+		td Yearly time :
+		td=((fulltime / 60) + '').split('.')[0] + ' hour'
+		td=((fulltime / 60) + '').split('.')[0] * 130 + ':' + ((fulltime / 60) + '').split('.')[0] * 100 +  ' / Years'
+div#FILES
+div#FOOTFILES

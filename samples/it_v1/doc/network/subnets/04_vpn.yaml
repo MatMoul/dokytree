@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../../schemas/subnet.json
+name: VPN
+subnet: 192.168.9.0/24
+gw: 192.168.9.1
+dns:
+  - 192.168.9.1
+dhcp:
+  server: '192.168.9.1'
+  ranges:
+    - from: '192.168.9.2'
+      to: '192.168.9.254'

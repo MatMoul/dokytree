@@ -1,0 +1,44 @@
+div#HEADFILES
+-
+	const updates = []
+	const readNode = (curNode) => {
+		if(curNode?.data?.updates?.length > 0) {
+			const nodeItem = {
+				name: curNode.data.name,
+				updates: curNode.data.updates,
+			}
+			updates.push(nodeItem)
+		}
+		curNode.items.forEach((itm) => {
+			if(itm?.data?.updates?.length > 0) {
+				const nodeItem = {
+					name: itm.data.name,
+					url: curNode.url + '?itm=' + itm.data.name,
+					updates: itm.data.updates,
+				}
+				updates.push(nodeItem)
+			}
+		})
+		curNode.nodes.forEach((childNode) => {
+			readNode(childNode)
+		})
+	}
+	readNode(doc)
+
+table
+	thead 
+		th Devices
+		th Types
+		th Method 
+		th Frequency
+		th Time
+	each itm in updates
+		each update in itm.updates
+			tr
+				td
+					a(href=itm.url)=itm.name
+				each key in Object.keys(update)
+					td=update[key]
+
+div#FILES
+div#FOOTFILES

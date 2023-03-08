@@ -1,0 +1,9 @@
+div#HEADFILES
+each childNode in node.nodes 
+	div
+		a(href=childNode.url)=childNode.title
+div#FILES
+each item in node.items
+	div
+		a(href=item.url)=item.title
+div#FOOTFILES

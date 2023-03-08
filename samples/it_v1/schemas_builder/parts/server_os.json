@@ -1,0 +1,28 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"properties": {
+		"os": {
+			"type": "string",
+			"anyOf": [
+				{ "type": "string" },
+				{"enum": [
+					"''",
+					"'Windows 2000'",
+					"'Windows 2003'",
+					"'Windows 2008'",
+					"'Windows 2008 R2'",
+					"'Windows 2012'",
+					"'Windows 2012 R2'",
+					"'Windows 2016'",
+					"'Windows 2019'",
+					"'Windows 2021'",
+					"'Debian'",
+					"'Debian / Proxmox VE'",
+					"'Debian / Proxmox BS'",
+					"'FreeBSD / OPNSense'",
+					"'FreeBSD / pfSense'"
+				]}
+			]
+		}
+	}
+}

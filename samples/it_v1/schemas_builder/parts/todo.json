@@ -1,0 +1,31 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+		"todo": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"msg": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"priority": { "type": "integer" },
+					"duration": {
+						 "anyOf": [
+							{"type": "integer"},
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../../schemas/ad_usergroups.json
+name: DOMAIN.local
+usergroups:
+  - name: 'Company'
+  - name: 'Company Management'
+  - name: 'Company RH'
+  - name: 'Company Accounting'
+  - name: 'Company Secretariat'

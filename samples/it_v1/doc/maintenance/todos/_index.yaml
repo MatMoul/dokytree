@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../../schemas/_index.json
+index: 1
+title: TODOS
+book: false
+templates:
+  node: todos

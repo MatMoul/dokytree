@@ -1,0 +1,26 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+		"roles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''",
+						"'DHCP'",
+						"'DNS'",
+						"'VPN'",
+						"'Firewall'",
+						"'DC'",
+						"'File Server'",
+						"'Print Server'",
+						"'App Server'",
+						"'Backup Server'",
+						"'Hypervisor'"
+					]}
+				]
+			}	
+		}
+	}
+}

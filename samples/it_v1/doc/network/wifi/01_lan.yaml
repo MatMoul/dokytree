@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../../schemas/wifi.json
+name: LAN
+ssid: 'Company-WIFI'
+key: 'feDFw848$435dEWs'

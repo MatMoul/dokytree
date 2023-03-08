@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../../schemas/subnet.json
+name: GUEST
+subnet: 192.168.5.0/24
+gw: 192.168.5.1
+dns:
+  - 192.168.5.1
+vlans:
+  - 10
+dhcp:
+  server: '192.168.5.1'
+  ranges:
+    - from: '192.168.5.10'
+      to: '192.18.5.199'

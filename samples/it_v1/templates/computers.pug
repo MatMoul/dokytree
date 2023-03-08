@@ -1,0 +1,23 @@
+div#HEADFILES
+table 
+	thead 
+		th Name
+		th OS
+		th IPs
+		th Emplacement
+	each computer in node.items
+		tr
+			td
+				a(href=computer.url)=computer.data.name
+			if (computer.data.os.substr(0,1) == '!')
+				td.alert=computer.data.os
+			else
+				td=computer.data.os
+			td
+				if computer.data.interfaces
+					each interface in computer.data.interfaces
+						if interface.ip
+							div=interface.ip
+			td=computer.data.location
+div#FILES
+div#FOOTFILES

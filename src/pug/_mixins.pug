@@ -1,0 +1,8 @@
+mixin tocitem(node, book = false)
+	if node.toc === true
+		if (book !== true) || (node.book === true)
+			li
+				a(href=node.url)=node.title
+			ul
+				each childNode in node.nodes
+					+tocitem(childNode, book)

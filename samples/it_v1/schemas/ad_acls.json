@@ -1,0 +1,118 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "YAML Schema for computer",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"todo": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"msg": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"priority": { "type": "integer" },
+					"duration": {
+						 "anyOf": [
+							{"type": "integer"},
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		},
+		"name": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"folders": {
+			"type": "array",
+			"items": {
+				"properties": {
+					"path": {
+						"oneOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"acls": {
+						"type": "array",
+						"items": {
+							"properties": {
+								"name": {
+									"oneOf": [
+										{"type": "string"},
+										{"enum": [
+											"''"
+										]}
+									]
+								},
+								"access": {
+									"oneOf": [
+										{"type": "string"},
+										{"enum": [
+											"''",
+											"'RO'",
+											"'RW'",
+											"'traversal'",
+											"'DENY'"
+										]}
+									]
+								}
+							}
+						}
+					}
+				}
+			}
+
+		},
+		"headfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"files": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"footfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		}
+	}
+}

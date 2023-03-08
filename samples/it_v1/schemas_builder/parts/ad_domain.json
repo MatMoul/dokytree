@@ -1,0 +1,46 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"properties": {
+		"dc": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"oneOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"fsmo": {
+						"oneOf": [
+							{"type": "string"},
+							{"enum": [
+								"''",
+								"'all'"
+							]}
+						]
+					}
+				}
+			}
+		},
+		"servers": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"oneOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+include _mixins.pug
+
+div#HEADFILES
+ul
+	each childNode in doc.nodes
+		if childNode.name !== 'index'
+			+tocitem(childNode, true)
+div#FILES
+div#FOOTFILES

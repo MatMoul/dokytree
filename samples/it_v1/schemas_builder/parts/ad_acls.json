@@ -1,0 +1,48 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"properties": {
+		"folders": {
+			"type": "array",
+			"items": {
+				"properties": {
+					"path": {
+						"oneOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"acls": {
+						"type": "array",
+						"items": {
+							"properties": {
+								"name": {
+									"oneOf": [
+										{"type": "string"},
+										{"enum": [
+											"''"
+										]}
+									]
+								},
+								"access": {
+									"oneOf": [
+										{"type": "string"},
+										{"enum": [
+											"''",
+											"'RO'",
+											"'RW'",
+											"'traversal'",
+											"'DENY'"
+										]}
+									]
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+	}
+}

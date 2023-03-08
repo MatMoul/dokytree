@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../../schemas/printer.json
+name: 'printer-01'
+type: printer
+model: ''
+location: ''
+interfaces:
+  - name: 'LAN'
+    ip: '10.10.10.212'
+    mask: '255.255.255.0'
+    gw: '10.10.10.1'
+    dns:
+      - '10.10.10.1'

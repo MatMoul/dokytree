@@ -1,0 +1,28 @@
+div#HEADFILES
+
+table
+	thead 
+		th Name
+		th DC
+		th FSMO
+		th Members
+	each itm in node.items
+		tr
+			td=itm.name
+			td
+				if (itm.data)
+					each dc in itm.data.dc 
+						div
+							a(href="/devices/servers?itm="+dc.name)=dc.name
+			td
+				if (itm.data)
+					each dc in itm.data.dc 
+						div=dc.fsmo
+			td
+				if (itm.data)
+					each srv in itm.data.servers
+						div
+							a(href="/devices/servers?itm="+srv.name)=srv.name
+
+div#FILES
+div#FOOTFILES

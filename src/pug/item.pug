@@ -1,0 +1,48 @@
+mixin parseValue(value, level)
+	if typeof value === 'string'
+		if value.substr(0,8) === 'https://' || value.substr(0,7) === 'http://'
+			td
+				a(href=value, target='_blank')=value
+		else
+			td=value
+	else
+		if Array.isArray(value)
+			if value.length > 0
+				if typeof value[0] === 'string'
+					td
+						each itm in value
+							div=itm
+				else
+					td
+						table
+							thead 
+								each key in Object.keys(value[0])
+									th=key
+							each itm in value
+								tr
+									each key in Object.keys(itm)
+										+parseValue(itm[key], level + 1)
+		else
+			table
+				each key in Object.keys(value)
+					if level == 0
+						case key
+							when 'name'
+							when 'title'
+							when 'headfiles'
+							when 'files'
+							when 'footfiles'
+								- break
+							default
+								tr
+									td=key
+									+parseValue(value[key], level + 1)
+					else
+						tr
+							td=key
+							+parseValue(value[key], level + 1)
+
+div#HEADFILES
++parseValue(item, 0)
+div#FILES
+div#FOOTFILES

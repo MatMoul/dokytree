@@ -1,0 +1,13 @@
+div#HEADFILES
+table 
+	thead 
+		th Subnet
+		th SSID
+		th Key
+	each wifi in node.items
+		tr
+			td=wifi.data.name
+			td=wifi.data.ssid
+			td=wifi.data.key
+div#FILES
+div#FOOTFILES

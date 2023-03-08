@@ -1,0 +1,73 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "YAML Schema for computer",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"index": { "type": "integer" },
+		"title": {
+			"anyOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"book": { "type": "boolean" },
+		"toc": { "type": "boolean" },
+		"templates": {
+			"type": "object",
+			"properties": {
+				"node": {
+					"anyOf": [
+						{"type": "string"},
+						{"enum": [
+							"''"
+						]}
+					]
+				},
+				"items": {
+					"anyOf": [
+						{"type": "string"},
+						{"enum": [
+							"''"
+						]}
+					]
+				}
+			}
+		},
+		"headfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"files": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"footfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		}
+	}
+}

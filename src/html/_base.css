@@ -1,0 +1,167 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 12pt;
+}
+
+#sidepanelbutton {
+	position: fixed;
+	left: 0;
+	top: 0;
+	padding: 4px;
+	display: none;
+	cursor: pointer;
+}
+
+#sidepanel {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 6cm;
+	bottom: 0;
+	padding-left: 10px;
+	padding-top: 10px;
+	background-color: #c8c8c8;
+	border-right: 1px solid black;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 1000;
+}
+
+#overlay {
+	display: none;
+	position: fixed;
+	left: 6cm;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1000;
+}
+
+#page {
+	position: relative;
+	left: 6cm;
+	top: 0;
+	width: 20cm;
+	min-height: 100%;
+	padding-top: 1px;
+	padding-left: 8mm;
+	padding-right: 8mm;
+	padding-bottom: 8mm;
+	break-inside: avoid;
+}
+
+#bookbutton {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+a:hover {
+	color: #0000b5;
+}
+
+ul {
+	margin: 0 0 0 5mm;
+	padding: 0;
+}
+li {
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+table {
+	border-collapse: collapse;
+}
+th {
+	padding-left: 6px;
+	padding-right: 6px;
+	text-align: left;
+	vertical-align: top;
+	White-space: nowrap;
+}
+td {
+	padding-left: 8px;
+	padding-right: 6px;
+	vertical-align: top;
+	White-space: nowrap;
+}
+
+tr:nth-child(odd) > td {
+	background-color: transparent;
+}
+tr:nth-child(even) > td {
+	background-color: #f2f2f2;
+}
+
+.section {
+	page-break-inside: avoid;
+}
+
+.largeimage {
+	width: 100%;
+}
+
+.itemvmargin {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.pagebreakbefore {
+	page-break-before: right;
+}
+.pagebreak {
+	page-break-after: left;
+}
+
+.bold {
+	font-weight: bold;
+}
+.monospace {
+	font-family: monospace;
+}
+
+.indent {
+	margin-left: 10px;
+}
+
+.alert {
+	color: red;
+}
+
+.attention {
+	color: orange;
+}
+
+@media screen and (max-width: 28cm) {
+	#sidepanelbutton {
+		display: block;
+	}
+	#sidepanel {
+		display: none;
+	}
+	#page {
+		left: 0;
+	}
+}
+
+@media print {
+	#sidepanel {
+		display: none;
+	}
+	#page {
+		left: 0;
+		padding: 0;
+		background-color: transparent;
+	}
+	#bookbutton {
+		display: none;
+	}
+}

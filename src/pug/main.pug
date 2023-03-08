@@ -1,0 +1,57 @@
+include _mixins.pug
+
+doctype html
+html
+	head
+		meta(name='viewport', content='width=device-width, height=device-height, initial-scale=1, maximum-scale=1')
+		meta(charset='utf-8')
+		if item
+			title=item.data.name
+		else
+			title=node.title+' '+new Date().toISOString().substr(0,16).replace('T', '-').replace(':', '-')
+		link(rel="stylesheet", href="/_base.css")
+		if settings.style !== ''
+			link(rel="stylesheet", href='/'+settings.style)
+		script.
+			const showSidePanel = () => {
+				document.getElementById('sidepanelbutton').style.display = 'none'
+				document.getElementById('sidepanel').style.display = 'block'
+				document.getElementById('overlay').style.display = 'block'
+			}
+			const hideSidePanel = () => {
+				document.getElementById('sidepanelbutton').style.display = 'block'
+				document.getElementById('sidepanel').style.display = 'none'
+				document.getElementById('overlay').style.display = 'none'
+			}
+	body
+		div#page
+			if item
+				h1=item.data.name
+			else
+				a(href='?book=true', target="_blank")#bookbutton Book
+				h1=node.title
+			div#CONTENT
+		div#sidepanel
+			a(href=doc.url)=doc.title
+			ul
+				each childNode in doc.nodes
+					+tocitem(childNode)
+		div(onclick='hideSidePanel()')#overlay
+		div(onclick='showSidePanel()')#sidepanelbutton &gt;
+		script.
+			const autoRefresh = async () => {
+				const response = await fetch('/autorefresh.json')
+				if(response.ok) {
+					const json = await response.json()
+					if(json.autorefresh === true) {
+						if(json.needrefresh === true) {
+							window.location.reload()
+						} else {
+							setTimeout(() => {
+								autoRefresh()
+							}, 1000)
+						}
+					}
+				}
+			}
+			autoRefresh()

@@ -1,0 +1,22 @@
+div#HEADFILES
+table 
+	thead 
+		th Name
+		th Type
+		th Model
+		th IPs
+		th Location
+	each printer in node.items
+		tr
+			td
+				a(href=printer.url)=printer.data.name
+			td=printer.data.type
+			td=printer.data.model
+			td
+				if printer.data.interfaces
+					each interface in printer.data.interfaces
+						if interface.ip
+							div=interface.ip
+			td=printer.data.location
+div#FILES
+div#FOOTFILES

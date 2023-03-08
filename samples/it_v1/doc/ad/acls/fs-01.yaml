@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../../schemas/ad_acls.json
+name: 'FS-01'
+folders:
+  - path: 'D:\Shares\Documents'
+    acls:
+      - name: 'Company'
+        access: 'RO'
+  - path: 'D:\Shares\Documents/Direction'
+    acls:
+      - name: 'Company Direction'
+        access: 'RW'
+  - path: 'D:\Shares\Documents/RH'
+    acls:
+      - name: 'Company Direction'
+        access: 'RO'
+      - name: 'Company RH'
+        access: 'RW'
+  - path: 'D:\Shares\Documents/Accounting'
+    acls:
+      - name: 'Company Direction'
+        access: 'RO'
+      - name: 'Company Accounting'
+        access: 'RW'
+  - path: 'D:\Shares\Documents/Secretariat'
+    acls:
+      - name: 'Company Direction'
+        access: 'RO'
+      - name: 'Company RH'
+        access: 'RO'
+      - name: 'Company Secretariat'
+        access: 'RW'

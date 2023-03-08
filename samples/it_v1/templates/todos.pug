@@ -1,0 +1,73 @@
+div#HEADFILES
+-
+	let todos = []
+	const readNode = (curNode) => {
+		if(curNode?.data?.todo?.length > 0) {
+			curNode.data.todo.forEach((itm) => {
+				const nodeItem = {
+					name: curNode.data.name,
+					todo: itm,
+				}
+				todos.push(nodeItem)
+			})
+		}
+
+		curNode.items.forEach((itm) => {
+			if(itm?.data?.todo?.length > 0) {
+				itm.data.todo.forEach((todo) => {
+					const nodeItem = {
+						name: itm.data.name,
+						url: curNode.url + '?itm=' + itm.data.name,
+						todo: todo,
+					}
+					todos.push(nodeItem)
+				})
+			}
+		})
+
+		curNode.nodes.forEach((childNode) => {
+			readNode(childNode)
+		})
+	}
+	const readNode1 = (curNode) => {
+		if(curNode?.data?.todo?.length > 0) {
+			const nodeItem = {
+				name: curNode.data.name,
+				todos: curNode.data.todo,
+			}
+			todos.push(nodeItem)
+		}
+		curNode.items.forEach((itm) => {
+			if(itm?.data?.todo?.length > 0) {
+				const nodeItem = {
+					name: itm.data.name,
+					url: curNode.url + '?itm=' + itm.data.name,
+					todos: itm.data.todo,
+				}
+				todos.push(nodeItem)
+			}
+		})
+		curNode.nodes.forEach((childNode) => {
+			readNode(childNode)
+		})
+	}
+
+	readNode(doc)
+	todos = todos.sort((x, y) => {
+		return (x.todo.priority - y.todo.priority)
+	})
+
+table
+	thead 
+		th Priority
+		th Object
+		th Message
+	each itm in todos
+		tr
+			td=itm.todo.priority
+			td
+				a(href=itm.url)=itm.name
+			td=itm.todo.msg
+
+div#FILES
+div#FOOTFILES

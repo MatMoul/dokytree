@@ -1,0 +1,116 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "YAML Schema for computer",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"todo": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"msg": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"priority": { "type": "integer" },
+					"duration": {
+						 "anyOf": [
+							{"type": "integer"},
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		},
+		"name": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"publisher": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"licenses": {
+			"oneOf": [
+				{"type": "integer"},
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"urls": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"website": {
+						"oneOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"download": {
+						"oneOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		},
+		"headfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"files": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"footfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		}
+	}
+}

@@ -1,0 +1,172 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "YAML Schema for computer",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"todo": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"msg": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"priority": { "type": "integer" },
+					"duration": {
+						 "anyOf": [
+							{"type": "integer"},
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		},
+		"name": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''",
+					"'LAN'",
+					"'LAN01'",
+					"'LAN02'",
+					"'LAN03'",
+					"'LAN04'",
+					"'LAN06'",
+					"'LAN07'",
+					"'LAN08'",
+					"'LAN09'",
+					"'LAN10'",
+					"'WAN'",
+					"'WIFI'",
+					"'GUEST'",
+					"'DMZ'",
+					"'VPN'"
+				]}
+			]
+		},
+		"subnet": {
+			"type": "string",
+			"oneOf": [
+				{ "type": "string" },
+				{ "enum": [
+					"''",
+					"'192.168.0.0/24'",
+					"'192.168.1.0/24'"
+				]}
+			]
+		},
+		"gw": {
+			"oneOf": [
+				{ "type": "string" },
+				{ "enum": [
+					"''",
+					"'192.168.0.1'",
+					"'192.168.1.1'"
+				]}
+			]
+		},
+		"dns": {
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''",
+						"'192.168.0.1'",
+						"'192.168.1.1'"
+					]}
+				]
+			}	
+		},
+		"vlans": {
+			"type": "array",
+			"items": {
+				"type": "integer"
+			}
+		},
+		"dhcp": {
+			"type": "object",
+			"properties": {
+				"server": {
+					"oneOf": [
+						{ "type": "string" },
+						{ "enum": [
+							"''",
+							"'192.168.0.1'",
+							"'192.168.1.1'"
+						]}
+					]
+				},
+				"ranges": {
+					"type": "array",
+					"items": {
+						"properties": {
+							"from": {
+								"oneOf": [
+									{ "type": "string" },
+									{ "enum": [
+										"''",
+										"'192.168.0.20'",
+										"'192.168.1.20'"
+									]}
+								]
+							},
+							"to": {
+								"oneOf": [
+									{ "type": "string" },
+									{ "enum": [
+										"''",
+										"'192.168.0.99'",
+										"'192.168.1.99'"
+									]}
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"headfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"files": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"footfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		}
+	}
+}

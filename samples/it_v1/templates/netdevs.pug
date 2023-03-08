@@ -1,0 +1,20 @@
+div#HEADFILES
+table 
+	thead 
+		th Name
+		th Model
+		th IPs
+		th Location
+	each netdev in node.items
+		tr
+			td
+				a(href=netdev.url)=netdev.data.name
+			td=netdev.data.model
+			td
+				if netdev.data.interfaces
+					each interface in netdev.data.interfaces
+						if interface.ip
+							div=interface.ip
+			td=netdev.data.location
+div#FILES
+div#FOOTFILES

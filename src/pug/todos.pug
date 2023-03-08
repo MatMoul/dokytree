@@ -1,0 +1,35 @@
+div#HEADFILES
+-
+	const todos = []
+	const readNode = (curNode) => {
+		if(curNode?.data?.todos?.length > 0) {
+			const nodeItem = {
+				name: curNode.data.name,
+				todos: curNode.data.todos,
+			}
+			todos.push(nodeItem)
+		}
+		curNode.items.forEach((itm) => {
+			if(itm?.data?.todos?.length > 0) {
+				const nodeItem = {
+					name: itm.data.name,
+					todos: itm.data.todos,
+				}
+				todos.push(nodeItem)
+			}
+		})
+		curNode.nodes.forEach((childNode) => {
+			readNode(childNode)
+		})
+	}
+	readNode(doc)
+
+table
+	each itm in todos
+		h4=itm.name
+		ul
+			each todo in itm.todos
+				li=todo
+
+div#FILES
+div#FOOTFILES

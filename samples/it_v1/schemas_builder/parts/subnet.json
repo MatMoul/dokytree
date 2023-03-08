@@ -1,0 +1,87 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+		"subnet": {
+			"type": "string",
+			"oneOf": [
+				{ "type": "string" },
+				{ "enum": [
+					"''",
+					"'192.168.0.0/24'",
+					"'192.168.1.0/24'"
+				]}
+			]
+		},
+		"gw": {
+			"oneOf": [
+				{ "type": "string" },
+				{ "enum": [
+					"''",
+					"'192.168.0.1'",
+					"'192.168.1.1'"
+				]}
+			]
+		},
+		"dns": {
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''",
+						"'192.168.0.1'",
+						"'192.168.1.1'"
+					]}
+				]
+			}	
+		},
+		"vlans": {
+			"type": "array",
+			"items": {
+				"type": "integer"
+			}
+		},
+		"dhcp": {
+			"type": "object",
+			"properties": {
+				"server": {
+					"oneOf": [
+						{ "type": "string" },
+						{ "enum": [
+							"''",
+							"'192.168.0.1'",
+							"'192.168.1.1'"
+						]}
+					]
+				},
+				"ranges": {
+					"type": "array",
+					"items": {
+						"properties": {
+							"from": {
+								"oneOf": [
+									{ "type": "string" },
+									{ "enum": [
+										"''",
+										"'192.168.0.20'",
+										"'192.168.1.20'"
+									]}
+								]
+							},
+							"to": {
+								"oneOf": [
+									{ "type": "string" },
+									{ "enum": [
+										"''",
+										"'192.168.0.99'",
+										"'192.168.1.99'"
+									]}
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+div#HEADFILES
+table 
+	thead 
+		th Name
+		th Publisher
+		th Licenses
+	each software in node.items
+		tr
+			td
+				a(href=software.url)=software.data.name
+			td=software.data.publisher
+			td=software.data.licenses
+div#FILES
+div#FOOTFILES
