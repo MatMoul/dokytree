@@ -47,4 +47,4 @@ git push
 git tag -a "v${VERSION}" -m "Version ${VERSION}"
 git push --tags
 
-git checkout "${branch}"
+git checkout "${BRANCH}"
