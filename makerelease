@@ -33,7 +33,7 @@ esac
 
 version=${1}
 
-git commit -m "Version ${version}" makefile src/*
+git commit -a -m "Version ${version}"
 git push
 
 git checkout main
