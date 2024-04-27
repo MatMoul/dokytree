@@ -13,7 +13,7 @@ div#HEADFILES
 			if(itm?.data?.backups?.length > 0) {
 				const nodeItem = {
 					name: itm.data.name,
-					url: curNode.url + '?itm=' + itm.data.name,
+					url: curNode.url + '?itm=' + itm.name,
 					backups: itm.data.backups,
 				}
 				backups.push(nodeItem)

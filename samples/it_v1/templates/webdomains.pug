@@ -2,12 +2,17 @@ div#HEADFILES
 
 table
 	thead 
-		th Account
+		th Name
 		th Notes
 	each itm in node.items
 		tr
 			td=itm.data.name
 			td=itm.data.notes
+		if itm.data.aliases
+			each alias in itm.data.aliases
+				tr
+					td=alias.name
+					td=alias.notes
 
 div#FILES
 div#FOOTFILES

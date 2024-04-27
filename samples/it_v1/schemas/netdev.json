@@ -38,6 +38,14 @@
 				]}
 			]
 		},
+		"maintainer": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
 		"type": {
 			"type": "string",
 			"anyOf": [

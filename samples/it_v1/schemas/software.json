@@ -38,6 +38,14 @@
 				]}
 			]
 		},
+		"maintainer": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
 		"publisher": {
 			"oneOf": [
 				{"type": "string"},
