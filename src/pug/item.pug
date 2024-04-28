@@ -1,12 +1,12 @@
 mixin parseValue(value, level)
-  if typeof value === 'string'                             
-    if value.substr(0,8) === 'https://' || value.substr(0,7) === 'http://'
-      td
-        a(href=value, target='_blank')=value
-    else
-      td=value
-  else if typeof value === 'string' || typeof value === 'number'
-    td=value
+	if typeof value === 'string'                             
+		if value.substr(0,8) === 'https://' || value.substr(0,7) === 'http://'
+			td
+				a(href=value, target='_blank')=value
+		else
+			td=value
+	else if typeof value === 'string' || typeof value === 'number'
+		td=value
 	else
 		if Array.isArray(value)
 			if value.length > 0
