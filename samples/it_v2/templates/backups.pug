@@ -2,10 +2,11 @@ div#HEADFILES
 -
 	const backups = []
 	const readNode = (curNode) => {
-		if(curNode?.data?.backups?.length > 0) {
+		if(curNode?.backups?.length > 0) {
 			const nodeItem = {
-				name: curNode.data.name,
-				backups: curNode.data.backups,
+				name: curNode.title,
+				url: curNode.url,
+				backups: curNode.backups,
 			}
 			backups.push(nodeItem)
 		}
@@ -27,8 +28,8 @@ div#HEADFILES
 
 table
 	thead 
-		th Devices
-		th Types
+		th Object
+		th Type
 		th Content 
 		th Frequency
 		th Time

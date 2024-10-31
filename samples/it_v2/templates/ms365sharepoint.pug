@@ -1,11 +1,8 @@
 div#HEADFILES
 
 each itm in node.items
-	table
-		tr
-			td.bold=itm.data.name
-		tr
-			td=itm.data.url
+	div.bold=itm.data.name
+	a(href=itm.data.url, target="_blank")=itm.data.url
 
 div#FILES
 div#FOOTFILES

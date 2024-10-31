@@ -27,6 +27,7 @@ const load = (yamlFile) => {
 				node: '@node',
 				items: '@item',
 			},
+			bakups: [],
 			parent: null,
 			nodes: [],
 			items: [],
@@ -67,6 +68,7 @@ const load = (yamlFile) => {
 				node: '@node',
 				items: '@item',
 			},
+			bakups: [],
 			parent: parentNode,
 			nodes: [],
 			items: [],
@@ -87,6 +89,7 @@ const load = (yamlFile) => {
 			if(yamlNode.book == false) node.book = yamlNode.book
 			if(yamlNode?.templates?.node) node.templates.node = yamlNode.templates.node
 			if(yamlNode?.templates?.items) node.templates.items = yamlNode.templates.items
+			if(yamlNode.backups) node.backups = yamlNode.backups
 			if(yamlNode.headfiles) node.headfiles = yamlNode.headfiles
 			if(yamlNode.files) node.files = yamlNode.files
 			if(yamlNode.footfiles) node.footfiles = yamlNode.footfiles
