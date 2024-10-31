@@ -1,0 +1,22 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"properties": {
+		"publisher": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"licenses": {
+			"oneOf": [
+				{"type": "integer"},
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		}
+	}
+}

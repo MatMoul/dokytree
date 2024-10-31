@@ -1,0 +1,34 @@
+div#HEADFILES
+
+each itm in node.items
+	table.itemvmargin
+		tr
+			td.bold Name
+			td.bold=itm.data.name
+		tr
+			td Path
+			td=itm.data.path
+		tr
+			td Targets
+			td
+				if (itm.data.targets)
+					each target in itm.data.targets
+						div=target
+		if (itm.data.folders)
+			tr
+				td Folders
+				td
+					table
+						thead 
+							th Name
+							th Targets
+						each fld in itm.data.folders
+							tr
+								td=fld.name
+								td
+									if (fld.targets)
+										each target in fld.targets
+											div=target
+
+div#FILES
+div#FOOTFILES

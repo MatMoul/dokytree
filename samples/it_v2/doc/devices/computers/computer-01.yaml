@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../../schemas/computer.json
+name: 'computer-01'
+type: ''
+model: ''
+os: 'Windows 11 Pro'
+location: ''
+interfaces:
+  - name: 'LAN'
+    ip: '10.10.10.21'
+    mask: '255.255.255.0'
+    gw: '10.10.10.1'
+    dns:
+      - '10.10.10.1'
+updates:
+  - type: 'os'
+    method: 'auto'
+    frequency: 'auto'
+    time: 'auto'
+backups:
+  - type: 'none'

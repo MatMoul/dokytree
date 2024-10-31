@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../../schemas/server.json
+name: 'dc-01'
+type: ''
+roles: [ 'DC' ]
+model: ''
+os: 'Windows Server 2019 Std'
+location: ''
+interfaces:
+  - name: 'LAN'
+    ip: '10.10.10.110'
+    mask: '255.255.255.0'
+    gw: '10.10.10.1'
+    dns:
+      - '127.0.0.1'
+updates:
+  - type: 'os'
+    method: 'auto'
+    frequency: 'friday'
+    time: 23:30
+backups:
+  - type: 'Windows Backup'
+    content: 'All'
+    frequency: daily
+    time: 20:30
+    duration: ''
+    target: 'External HDD'

@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../../schemas/ad_dfs.json
+name: 'ROOT'
+path: '\\DOMAIN.local\ROOT'
+targets:
+  - '\\FS-01\ROOT'
+folders:
+  - name: 'Documents'
+    targets:
+      - '\\FS-01\Documents'

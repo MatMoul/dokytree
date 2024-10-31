@@ -1,0 +1,17 @@
+div#HEADFILES
+
+each srv in node.items
+	h3=srv.data.name
+	h4 Folders
+	table
+		each fileshare in srv.data.fileshares 
+			tr
+				td=fileshare.path
+	h4 Printers
+	table
+		each printshare in srv.data.printshares 
+			tr
+				td=printshare.path
+
+div#FILES
+div#FOOTFILES

@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../schemas/software.json
+name: 'Software 1'
+publisher: 'Software Inc'
+licenses: '4'
+urls:
+  - website: 'https://soft.home'
+  - download: 'https://soft.download'
+files:
+  - notes.md

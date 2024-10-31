@@ -1,0 +1,25 @@
+div#HEADFILES
+table 
+	thead 
+		th Name
+		th Subnet
+		th Gateway
+		th DNS
+		th VLANS
+	each subnet in node.items
+		tr
+			td=subnet.data.name
+			td=subnet.data.subnet
+			td=subnet.data.gw
+			td
+				if subnet.data.dns
+					each dns in subnet.data.dns
+						div=dns
+			td
+				if subnet.data.vlans
+					-var array = []
+					each vlan in subnet.data.vlans
+						-array.push(vlan)
+					div=array
+div#FILES
+div#FOOTFILES

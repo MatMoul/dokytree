@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../../schemas/_index.json
+index: 4
+title: Computers
+toc: false
+templates:
+  node: 'computers'

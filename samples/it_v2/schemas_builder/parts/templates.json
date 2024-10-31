@@ -1,0 +1,26 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+		"templates": {
+			"type": "object",
+			"properties": {
+				"node": {
+					"anyOf": [
+						{"type": "string"},
+						{"enum": [
+							"''"
+						]}
+					]
+				},
+				"items": {
+					"anyOf": [
+						{"type": "string"},
+						{"enum": [
+							"''"
+						]}
+					]
+				}
+			}
+		}
+	}
+}

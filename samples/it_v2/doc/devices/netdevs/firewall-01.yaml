@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../../schemas/netdev.json
+name: 'firewall-01'
+roles:
+  - Firewall
+  - DHCP
+  - DNS
+  - VPN
+  - VLAN
+model: 'Generic Firewall'
+os: 'Linux'
+location: ''
+interfaces:
+  - name: 'LAN'
+    ip: '10.10.10.1'
+    mask: '255.255.255.0'
+  - name: 'GUEST'
+    ip: '192.168.5.1'
+    mask: '255.255.255.0'
+  - name: 'VPN'
+    ip: '192.168.9.1'
+    mask: '255.255.255.0'
+  - name: 'WAN'
+    ip: '0.0.0.0'
+    mask: '255.255.255.255'
+updates:
+  - type: 'os'
+    method: 'auto'
+    frequency: 'tuesday'
+    time: '12:30'
+backups:
+  - type: 'manual'
+    content: 'config'
+    frequency: 'On change'

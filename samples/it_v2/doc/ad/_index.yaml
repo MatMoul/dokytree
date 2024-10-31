@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=../../schemas/_index.json
+index: 4
+title: 'Active Directory'
+templates:
+  node: '@overview'

@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=../../schemas/_index.json
+index: 10
+title: Softwares
+templates:
+  node: 'softwares'

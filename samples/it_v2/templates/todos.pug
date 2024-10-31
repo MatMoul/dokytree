@@ -1,0 +1,59 @@
+div#HEADFILES
+-
+	let todos = []
+	const readNode = (curNode) => {
+		if(curNode?.todo?.length > 0) {
+			curNode.todo.forEach((itm) => {
+				const nodeItem = {
+					name: curNode.name,
+					url: curNode.url,
+					todo: itm,
+				}
+				todos.push(nodeItem)
+			})
+		}
+
+		curNode.items.forEach((itm) => {
+			if(itm?.data?.todo?.length > 0) {
+				itm.data.todo.forEach((todo) => {
+					const nodeItem = {
+						name: itm.data.name,
+						url: curNode.url + '?itm=' + itm.name,
+						todo: todo,
+					}
+					todos.push(nodeItem)
+				})
+			}
+		})
+
+		curNode.nodes.forEach((childNode) => {
+			readNode(childNode)
+		})
+	}
+
+	readNode(doc)
+	todos = todos.sort((x, y) => {
+		return (y.todo.priority - x.todo.priority)
+	})
+
+table
+	thead 
+		th Priority
+		th Object
+		th Message
+	each itm in todos
+		if itm.todo.priority >= 10
+			tr.alert
+				td=itm.todo.priority
+				td
+					a.alert(href=itm.url)=itm.name
+				td=itm.todo.msg
+		else
+			tr
+				td=itm.todo.priority
+				td
+					a(href=itm.url)=itm.name
+				td=itm.todo.msg
+
+div#FILES
+div#FOOTFILES

@@ -1,0 +1,28 @@
+div#HEADFILES
+table 
+	thead 
+		th Name
+		th Roles
+		th OS
+		th IPs
+		th Location
+	each server in node.items
+		tr
+			td
+				a(href=server.url)=server.data.name
+			td
+				if server.data.roles
+					each role in server.data.roles
+						div=role
+			if (server.data.os.substr(0,1) == '!')
+				td.alert=server.data.os
+			else
+				td=server.data.os
+			td
+				if server.data.interfaces
+					each interface in server.data.interfaces
+						if interface.ip
+							div=interface.ip
+			td=server.data.location
+div#FILES
+div#FOOTFILES

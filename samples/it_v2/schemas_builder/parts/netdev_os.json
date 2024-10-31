@@ -1,0 +1,16 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"properties": {
+		"os": {
+			"type": "string",
+			"anyOf": [
+				{ "type": "string" },
+				{"enum": [
+					"''",
+					"'Linux'",
+					"'Debian'"
+				]}
+			]
+		}
+	}
+}

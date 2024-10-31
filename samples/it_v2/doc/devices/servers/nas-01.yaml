@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../../schemas/server.json
+todo:
+  - msg: 'Add a new NAS server for backup'
+    priority: 20
+name: 'nas-01'
+type: ''
+roles:
+  - 'Backup server'
+model: ''
+os: ''
+location: ''
+interfaces:
+  - name: 'LAN'
+    ip: '10.10.10.119'
+    mask: '255.255.255.0'
+    gw: '10.10.10.1'
+    dns:
+      - '10.10.10.1'
+updates:
+  - type: 'os'
+    method: 'auto'
+    frequency: 'friday'
+    time: 23:30
+backups:
+  - type: 'Internal Backup'
+    content: 'All'
+    frequency: daily
+    time: 20:30
+    duration: ''
+    target: 'External HDD'

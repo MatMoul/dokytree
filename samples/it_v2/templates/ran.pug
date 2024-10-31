@@ -1,0 +1,16 @@
+div#HEADFILES
+table 
+	thead 
+		th Name
+		th Type
+		th Model
+		th Location
+	each ran in node.items
+		tr
+			td
+				a(href=ran.url)=ran.data.name
+			td=ran.data.type
+			td=ran.data.model
+			td=ran.data.location
+div#FILES
+div#FOOTFILES

@@ -1,0 +1,11 @@
+div#HEADFILES
+
+each dom in node.items
+	h3=dom.data.name
+	table
+		each usergroup in dom.data.usergroups
+			tr
+				td=usergroup.name
+
+div#FILES
+div#FOOTFILES

@@ -1,0 +1,15 @@
+div#HEADFILES
+
+each srv in node.items
+	h3=srv.data.name
+	each fld in srv.data.folders
+		div.itemvmargin
+			div=fld.path
+			table
+				each acl in fld.acls
+					tr
+						td=acl.name
+						td=acl.access
+
+div#FILES
+div#FOOTFILES

@@ -1,0 +1,3 @@
+# yaml-language-server: $schema=../../../schemas/subnet.json
+name: WAN
+subnet: 0.0.0.0/32

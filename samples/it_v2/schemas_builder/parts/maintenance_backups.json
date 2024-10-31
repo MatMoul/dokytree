@@ -1,0 +1,86 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"properties": {
+		"backups": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'none'",
+								"'hypervisor'",
+								"'windowsbackup'"
+							]}
+						]
+					},
+					"method": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'auto'",
+								"'manual'"
+							]}
+						]
+					},
+					"frequency": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'daily'",
+								"'weekly'",
+								"'monthly'",
+								"'quarterly'",
+								"'halfyearly'",
+								"'yearly'",
+								"'monday'",
+								"'tuesday'",
+								"'wednesday'",
+								"'thursday'",
+								"'friday'",
+								"'saturday'",
+								"'sonday'"
+							]}
+						]
+					},
+					"target": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''",
+								"'usb'",
+								"'pbs'",
+								"'share'",
+								"'iscsi'",
+								"'cloud'"
+							]}
+						]
+					},
+					"time": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''",
+								"'auto'"
+							]}
+						]
+					},
+					"duration": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "type": "integer" },
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		}
+	}
+}

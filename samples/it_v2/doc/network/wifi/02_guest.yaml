@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../../schemas/wifi.json
+name: GUEST
+ssid: 'GUEST-WIFI'
+key: 'Visitors'

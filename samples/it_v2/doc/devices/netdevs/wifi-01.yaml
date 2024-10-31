@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../../schemas/netdev.json
+name: 'wifi-01'
+model: ''
+location: ''
+interfaces:
+  - name: 'LAN'
+    ip: '10.10.10.241'
+    mask: '255.255.255.0'
+    gw: '10.10.10.1'
+    dns: [ '10.10.10.1' ]
+updates:
+  - type: 'os'
+    method: 'manual'
+    frequency: 'yearly'
+    time: '-'
+backups:
+  - type: 'manual'
+    content: 'config'
+    frequency: 'On change'

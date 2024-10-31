@@ -17,6 +17,7 @@ const load = (yamlFile) => {
 			},
 		},
 		root: {
+			todo: [],
 			name: '',
 			title: '',
 			toc: false,
@@ -55,6 +56,7 @@ const load = (yamlFile) => {
 		const nodePathParts = nodePath.split(path.sep)
 		const nodeName = (parentNode)?nodePathParts[nodePathParts.length - 1]:'root'
 		const node = {
+			todo: [],
 			index: 100,
 			name: nodeName,
 			title: nodeName,
@@ -78,6 +80,7 @@ const load = (yamlFile) => {
 
 		const yamlNode = YAML.parse(fs.readFileSync(path.join(nodePath, '_index.yaml'), 'utf8'))
 		if(yamlNode) {
+			if(yamlNode.todo) node.todo = yamlNode.todo
 			if(yamlNode.index) node.index = yamlNode.index
 			if(yamlNode.title) node.title = yamlNode.title
 			if(yamlNode.toc == false) node.toc = yamlNode.toc

@@ -1,0 +1,72 @@
+div#HEADFILES
+-
+	let dhcpRanges = []
+	node.parent.getNode('subnets').items.forEach((itm) => {
+		itm?.data?.dhcp?.ranges?.forEach((rng) => {
+			dhcpRanges.push({
+				from: rng.from,
+				to: rng.to,
+				server: itm.data.dhcp.server,
+				name: itm.data.name,
+			})
+		})
+	})
+	dhcpRanges = dhcpRanges.sort((a,b)=>{return compareIP(a.from, b.from)})
+	let ipNodes = []
+	node.parent.parent.getNode('devices')?.nodes?.forEach((nd) => {
+		nd.items.forEach((itm) => {
+			if(itm.data.interfaces) {
+				itm.data.interfaces.forEach((nic) => {
+					if(nic.ip) ipNodes.push({
+						ip: nic.ip,
+						node: nd,
+						item: itm,
+					})
+				})
+			}
+		})
+	})
+	ipNodes = ipNodes.sort((a,b)=>{return compareIP(a.ip, b.ip)})
+if dhcpRanges.length > 0
+	h3 DHCP ranges
+	table 
+		thead 
+			th Subnet
+			th Server
+			th From
+			th To
+		each rng in dhcpRanges
+			tr
+				td=rng.name
+				td=rng.server
+				td=rng.from
+				td=rng.to
+if ipNodes.length > 0
+	h3 Static IPs
+	table 
+		thead 
+			th IP
+			th Name
+			th Model
+			th OS
+		each nd in ipNodes
+			tr
+				td=nd.ip
+				td
+					a(href=nd.item.url)=nd.item.data.name
+				if	(nd.item.data.model)
+					if (nd.item.data.model.substr(0,1) == '!')
+						td.alert=nd.item.data.model
+					else
+						td=nd.item.data.model
+				else
+					td
+				if	(nd.item.data.os)
+					if (nd.item.data.os.substr(0,1) == '!')
+						td.alert=nd.item.data.os
+					else
+						td=nd.item.data.os
+				else
+					td
+div#FILES
+div#FOOTFILES

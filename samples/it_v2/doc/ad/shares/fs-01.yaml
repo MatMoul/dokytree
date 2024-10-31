@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=../../../schemas/ad_shares.json
+name: FS-01
+fileshares:
+  - path: '\\FS-01\Documents'
+printshares:
+  - path: '\\FS-01\MFC-01'
+  - path: '\\FS-01\PRINTER-01'

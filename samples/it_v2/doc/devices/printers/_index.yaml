@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../../schemas/_index.json
+index: 8
+title: Printers
+toc: false
+templates:
+  node: printers

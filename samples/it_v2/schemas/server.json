@@ -1,0 +1,362 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "YAML Schema for computer",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"todo": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"msg": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"priority": { "type": "integer" },
+					"duration": {
+						 "anyOf": [
+							{"type": "integer"},
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		},
+		"name": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"maintainer": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"type": {
+			"type": "string",
+			"anyOf": [
+				{ "type": "string" },
+				{ "enum": [
+					"''",
+					"'mini'",
+					"'rack'",
+					"'tower'",
+					"'vm'"
+				]}
+			]
+		},
+		"roles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''",
+						"'DHCP'",
+						"'DNS'",
+						"'VPN'",
+						"'Firewall'",
+						"'DC'",
+						"'File Server'",
+						"'Print Server'",
+						"'App Server'",
+						"'Backup Server'",
+						"'Hypervisor'"
+					]}
+				]
+			}	
+		},
+		"model": {
+			"anyOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"os": {
+			"type": "string",
+			"anyOf": [
+				{ "type": "string" },
+				{"enum": [
+					"''",
+					"'Windows 2000'",
+					"'Windows 2003'",
+					"'Windows 2008'",
+					"'Windows 2008 R2'",
+					"'Windows 2012'",
+					"'Windows 2012 R2'",
+					"'Windows 2016'",
+					"'Windows 2019'",
+					"'Windows 2021'",
+					"'Debian'",
+					"'Debian / Proxmox VE'",
+					"'Debian / Proxmox BS'",
+					"'FreeBSD / OPNSense'",
+					"'FreeBSD / pfSense'"
+				]}
+			]
+		},
+		"location": {
+			"anyOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"interfaces": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''",
+								"'LAN'",
+								"'WIFI'",
+								"'WAN'",
+								"'VPN'"
+							]}
+						]
+					},
+					"ip": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"mask": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''",
+								"'255.255.255.0'",
+								"'255.255.0.0'",
+								"'255.0.0.0'"
+							]}
+						]
+					},
+					"gw": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''"
+							]}
+						]
+					},
+					"dns": {
+						"type": "array",
+						"items": {
+							"anyOf": [
+								{"type": "string"},
+								{"enum": [
+									"''"
+								]}
+							]
+						}
+					}
+				}
+			}
+		},
+		"updates": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'os'"
+							]}
+						]
+					},
+					"method": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'auto'",
+								"'manual'"
+							]}
+						]
+					},
+					"frequency": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'auto'",
+								"'daily'",
+								"'weekly'",
+								"'monthly'",
+								"'quarterly'",
+								"'halfyearly'",
+								"'yearly'",
+								"'monday'",
+								"'tuesday'",
+								"'wednesday'",
+								"'thursday'",
+								"'friday'",
+								"'saturday'",
+								"'sonday'"
+							]}
+						]
+					},
+					"time": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''",
+								"'auto'"
+							]}
+						]
+					},
+					"duration": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "type": "integer" },
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		},
+		"backups": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'none'",
+								"'hypervisor'",
+								"'windowsbackup'"
+							]}
+						]
+					},
+					"method": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'auto'",
+								"'manual'"
+							]}
+						]
+					},
+					"frequency": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "enum": [
+								"''",
+								"'daily'",
+								"'weekly'",
+								"'monthly'",
+								"'quarterly'",
+								"'halfyearly'",
+								"'yearly'",
+								"'monday'",
+								"'tuesday'",
+								"'wednesday'",
+								"'thursday'",
+								"'friday'",
+								"'saturday'",
+								"'sonday'"
+							]}
+						]
+					},
+					"target": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''",
+								"'usb'",
+								"'pbs'",
+								"'share'",
+								"'iscsi'",
+								"'cloud'"
+							]}
+						]
+					},
+					"time": {
+						"anyOf": [
+							{"type": "string"},
+							{"enum": [
+								"''",
+								"'auto'"
+							]}
+						]
+					},
+					"duration": {
+						"anyOf": [
+							{ "type": "string" },
+							{ "type": "integer" },
+							{"enum": [
+								"''"
+							]}
+						]
+					}
+				}
+			}
+		},
+		"headfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"files": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		},
+		"footfiles": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "type": "string" },
+					{ "enum": [
+						"''"
+					]}
+				]
+			}	
+		}
+	}
+}

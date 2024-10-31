@@ -1,0 +1,28 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+		"name": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''",
+					"'LAN'",
+					"'LAN01'",
+					"'LAN02'",
+					"'LAN03'",
+					"'LAN04'",
+					"'LAN06'",
+					"'LAN07'",
+					"'LAN08'",
+					"'LAN09'",
+					"'LAN10'",
+					"'WAN'",
+					"'WIFI'",
+					"'GUEST'",
+					"'DMZ'",
+					"'VPN'"
+				]}
+			]
+		}
+	}
+}

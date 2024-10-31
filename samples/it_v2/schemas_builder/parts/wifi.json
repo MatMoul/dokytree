@@ -1,0 +1,21 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"properties": {
+		"ssid": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		},
+		"key": {
+			"oneOf": [
+				{"type": "string"},
+				{"enum": [
+					"''"
+				]}
+			]
+		}
+	}
+}
